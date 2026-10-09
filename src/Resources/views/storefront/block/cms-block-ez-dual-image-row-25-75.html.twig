@@ -1,0 +1,25 @@
+{% block block_ez_dual_image_row_25_75 %}
+    <div class="cms-block-ez-dual-image-row-25-75 ez-dual-image-row ez-dual-image-row--larger-right">
+        {% block block_ez_dual_image_row_25_75_left %}
+            <div class="ez-dual-image-row__cell ez-dual-image-row__cell--left">
+                {% set slotLeft = block.slots.getSlot('imageLeft') %}
+                {% if slotLeft is not null %}
+                    {% sw_include "@Storefront/storefront/element/cms-element-" ~ slotLeft.type ~ ".html.twig" ignore missing with {
+                        element: slotLeft
+                    } %}
+                {% endif %}
+            </div>
+        {% endblock %}
+
+        {% block block_ez_dual_image_row_25_75_right %}
+            <div class="ez-dual-image-row__cell ez-dual-image-row__cell--right">
+                {% set slotRight = block.slots.getSlot('imageRight') %}
+                {% if slotRight is not null %}
+                    {% sw_include "@Storefront/storefront/element/cms-element-" ~ slotRight.type ~ ".html.twig" ignore missing with {
+                        element: slotRight
+                    } %}
+                {% endif %}
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

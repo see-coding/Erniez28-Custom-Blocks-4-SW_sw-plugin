@@ -1,0 +1,15 @@
+.sw-cms-preview-ez-6col-row {
+    display: flex;
+    gap: 3px;
+    height: 100%;
+    width: 100%;
+    padding: 6px;
+
+    .col {
+        flex: 1;
+        background: #e2e8f0;
+        border: 1px dashed #94a3b8;
+        border-radius: 3px;
+        min-height: 40px;
+    }
+}

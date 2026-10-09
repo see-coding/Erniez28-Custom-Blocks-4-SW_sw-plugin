@@ -1,0 +1,11 @@
+<div class="sw-cms-el-bp-hero-cell">
+    <div class="hero-cell-preview">
+        <div class="hero-cell-content">
+            <span v-if="!backgroundMedia" class="placeholder-text">Wähle Bilder in den Einstellungen (Zahnrad)</span>
+            <template v-else>
+                <img class="bg-preview" v-if="backgroundMedia.url" :src="backgroundMedia.url" alt="Background">
+                <img class="logo-preview" v-if="logoMedia && logoMedia.url" :src="logoMedia.url" alt="Logo">
+            </template>
+        </div>
+    </div>
+</div>

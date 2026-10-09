@@ -1,0 +1,61 @@
+{% block element_ez_usp_grid %}
+    {% set config = element.fieldConfig ? element.fieldConfig.elements : null %}
+
+    {% set uspItems = [
+        {
+            'icon': 'truck',
+            'title': (config and config.title1 and config.title1.value) ? config.title1.value : ('erniez28.blocks.usp.shippingTitle'|trans|default('Kostenloser Versand')),
+            'text': (config and config.text1 and config.text1.value) ? config.text1.value : ('erniez28.blocks.usp.shippingText'|trans|default('Ab 50 € versandkostenfrei in ganz DE')),
+            'badge': (config and config.badge1 and config.badge1.value) ? config.badge1.value : 'Top Service'
+        },
+        {
+            'icon': 'shield-check',
+            'title': (config and config.title2 and config.title2.value) ? config.title2.value : ('erniez28.blocks.usp.qualityTitle'|trans|default('Geprüfte Qualität')),
+            'text': (config and config.text2 and config.text2.value) ? config.text2.value : ('erniez28.blocks.usp.qualityText'|trans|default('Langlebige Veredelung & Premium Textilien')),
+            'badge': (config and config.badge2 and config.badge2.value) ? config.badge2.value : '100% Cotton'
+        },
+        {
+            'icon': 'lock',
+            'title': (config and config.title3 and config.title3.value) ? config.title3.value : ('erniez28.blocks.usp.securityTitle'|trans|default('Sicherer Checkout')),
+            'text': (config and config.text3 and config.text3.value) ? config.text3.value : ('erniez28.blocks.usp.securityText'|trans|default('SSL-Verschlüsselung mit PayPal & Apple Pay')),
+            'badge': (config and config.badge3 and config.badge3.value) ? config.badge3.value : 'Verified'
+        },
+        {
+            'icon': 'headset',
+            'title': (config and config.title4 and config.title4.value) ? config.title4.value : ('erniez28.blocks.usp.supportTitle'|trans|default('Persönlicher Support')),
+            'text': (config and config.text4 and config.text4.value) ? config.text4.value : ('erniez28.blocks.usp.supportText'|trans|default('Kompetente Beratung & unkomplizierte Hilfe')),
+            'badge': (config and config.badge4 and config.badge4.value) ? config.badge4.value : '24/7 Hilfsbereit'
+        }
+    ] %}
+
+    <div class="cms-element-ez-usp-grid ez-usp-grid">
+        <div class="row g-4 justify-content-center">
+            {% for item in uspItems %}
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="ez-usp-card">
+                        <div class="ez-usp-card__header">
+                            <div class="ez-usp-card__icon-wrapper">
+                                {% if item.icon == 'truck' %}
+                                    <svg class="ez-usp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                                {% elseif item.icon == 'shield-check' %}
+                                    <svg class="ez-usp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                                {% elseif item.icon == 'lock' %}
+                                    <svg class="ez-usp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                {% else %}
+                                    <svg class="ez-usp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                {% endif %}
+                            </div>
+                            {% if item.badge %}
+                                <span class="ez-usp-card__badge">{{ item.badge }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="ez-usp-card__body">
+                            <h3 class="ez-usp-card__title">{{ item.title }}</h3>
+                            <p class="ez-usp-card__text">{{ item.text }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

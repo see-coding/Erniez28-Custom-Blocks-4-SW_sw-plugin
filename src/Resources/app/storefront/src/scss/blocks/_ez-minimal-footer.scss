@@ -1,0 +1,88 @@
+// ==============================================================================
+// Erniez28 Custom Blocks - Minimal Legal Footer
+// ==============================================================================
+
+.ez-minimal-footer-wrapper,
+.lp-minimal-footer-wrapper {
+    width: 100%;
+    padding: 2rem 1rem 1rem;
+    box-sizing: border-box;
+
+    .ez-minimal-footer-inner,
+    .lp-minimal-footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .ez-legal-links-row,
+    .lp-legal-links-row {
+        margin-bottom: 1.5rem;
+
+        .ez-legal-link,
+        .lp-legal-link {
+            font-size: 0.875rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
+            padding: 0.5rem 0.5rem;
+            opacity: 0.85;
+            transition: opacity 0.2s ease, text-decoration 0.2s ease;
+
+            &:hover,
+            &:focus-visible {
+                opacity: 1;
+                text-decoration: underline;
+                outline: 2px solid #0d6efd;
+                outline-offset: 2px;
+            }
+        }
+    }
+
+    .ez-minimal-footer-marquee,
+    .lp-minimal-footer-marquee {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        overflow: hidden;
+        white-space: nowrap;
+        padding: 0.5rem 0;
+        font-weight: 700;
+        font-size: 0.875rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+
+        .ez-marquee-text,
+        .lp-marquee-text {
+            display: inline-block;
+            animation: ez-footer-marquee 25s linear infinite;
+
+            &.ez-speed-slow,
+            &.lp-speed-slow {
+                animation-duration: 40s;
+            }
+
+            &.ez-speed-fast,
+            &.lp-speed-fast {
+                animation-duration: 15s;
+            }
+        }
+    }
+}
+
+@keyframes ez-footer-marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ez-minimal-footer-wrapper .ez-minimal-footer-marquee .ez-marquee-text,
+    .lp-minimal-footer-wrapper .lp-minimal-footer-marquee .lp-marquee-text {
+        animation: none !important;
+        white-space: normal;
+        overflow-x: auto;
+    }
+}

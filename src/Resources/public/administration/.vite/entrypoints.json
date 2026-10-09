@@ -1,0 +1,41 @@
+{
+  "base": "/bundles/erniez28customblocks4sw/administration/",
+  "entryPoints": {
+    "erniez28-custom-blocks4-sw": {
+      "css": [
+        "/bundles/erniez28customblocks4sw/administration/assets/erniez28-custom-blocks4-sw-CEroYHHz.css"
+      ],
+      "dynamic": [
+        "/bundles/erniez28customblocks4sw/administration/assets/index-CBT5KHkW.js",
+        "/bundles/erniez28customblocks4sw/administration/assets/index-B1BHWKif.js",
+        "/bundles/erniez28customblocks4sw/administration/assets/index-f_YtIK9E.js",
+        "/bundles/erniez28customblocks4sw/administration/assets/index-6oebeCld.js",
+        "/bundles/erniez28customblocks4sw/administration/assets/index-Bt1QJX92.js",
+        "/bundles/erniez28customblocks4sw/administration/assets/index-jOW006ns.js",
+        "/bundles/erniez28customblocks4sw/administration/assets/index-6oebeCld.js",
+        "/bundles/erniez28customblocks4sw/administration/assets/index-Bt1QJX92.js",
+        "/bundles/erniez28customblocks4sw/administration/assets/index-jOW006ns.js",
+        "/bundles/erniez28customblocks4sw/administration/assets/index-C6BXmzLF.js",
+        "/bundles/erniez28customblocks4sw/administration/assets/index-DSYFQTDC.js",
+        "/bundles/erniez28customblocks4sw/administration/assets/index-Cx8CGSUO.js",
+        "/bundles/erniez28customblocks4sw/administration/assets/index-C6BXmzLF.js",
+        "/bundles/erniez28customblocks4sw/administration/assets/index-DSYFQTDC.js",
+        "/bundles/erniez28customblocks4sw/administration/assets/index-Cx8CGSUO.js"
+      ],
+      "js": [
+        "/bundles/erniez28customblocks4sw/administration/assets/erniez28-custom-blocks4-sw-DhCSMCbE.js"
+      ],
+      "legacy": false,
+      "preload": []
+    }
+  },
+  "legacy": false,
+  "metadatas": {},
+  "version": [
+    "7.1.0",
+    7,
+    1,
+    0
+  ],
+  "viteServer": null
+}

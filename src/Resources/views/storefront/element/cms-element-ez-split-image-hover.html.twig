@@ -1,0 +1,60 @@
+{% block element_ez_split_image_hover %}
+    {% set media1 = element.data.media1 ?? null %}
+    {% set media2 = element.data.media2 ?? null %}
+    {% set url1 = element.translated.config.url1.value ?? null %}
+    {% set url2 = element.translated.config.url2.value ?? null %}
+    {% set newTab1 = element.translated.config.newTab1.value ?? false %}
+    {% set newTab2 = element.translated.config.newTab2.value ?? false %}
+
+    <div class="cms-element-ez-split-image-hover ez-split-image-hover">
+        {% if media1 or media2 %}
+            <div class="ez-split-image-gallery">
+
+                {# Upper triangle (Image 1) #}
+                <div class="ez-split-item ez-split-item--top">
+                    {% if media1 %}
+                        {% if url1 %}
+                            <a href="{{ url1 }}" class="ez-split-link"{% if newTab1 %} target="_blank" rel="noopener"{% endif %}>
+                        {% endif %}
+
+                        {% sw_thumbnails 'ez-split-img-1' with {
+                            media: media1,
+                            attributes: {
+                                class: 'ez-split-img',
+                                alt: media1.translated.alt|default('Teaser 1'),
+                                loading: 'lazy'
+                            }
+                        } %}
+
+                        {% if url1 %}
+                            </a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+
+                {# Lower triangle (Image 2) #}
+                <div class="ez-split-item ez-split-item--bottom">
+                    {% if media2 %}
+                        {% if url2 %}
+                            <a href="{{ url2 }}" class="ez-split-link"{% if newTab2 %} target="_blank" rel="noopener"{% endif %}>
+                        {% endif %}
+
+                        {% sw_thumbnails 'ez-split-img-2' with {
+                            media: media2,
+                            attributes: {
+                                class: 'ez-split-img',
+                                alt: media2.translated.alt|default('Teaser 2'),
+                                loading: 'lazy'
+                            }
+                        } %}
+
+                        {% if url2 %}
+                            </a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,144 @@
+{% block element_ez_legal_modals %}
+    {% set config = element.fieldConfig.elements %}
+    {% set elementId = element.id|default('ez-modals-' ~ random()) %}
+    {% set btn1Text = config.btn1Text.value|default('erniez28.blocks.legalModals.productSafety'|trans|default('Produktdetails & Produktsicherheit (GPSR)')) %}
+    {% set btn1Style = config.btn1Style.value|default('btn-outline-primary') %}
+    {% set btn2Text = config.btn2Text.value|default('erniez28.blocks.legalModals.shopInfo'|trans|default('Shop-Infos & Rechtliches')) %}
+    {% set btn2Style = config.btn2Style.value|default('btn-outline-secondary') %}
+    {% set alignClass = config.align.value|default('center') %}
+
+    <div class="ez-legal-modals-btn-container d-flex gap-2 justify-content-{{ alignClass }} flex-wrap my-3">
+        {% if btn1Text %}
+            <button type="button" class="btn btn-sm {{ btn1Style }} ez-modal-btn" data-bs-toggle="modal" data-bs-target="#ezDetailModal-{{ elementId }}">
+                {{ btn1Text }}
+            </button>
+        {% endif %}
+
+        {% if btn2Text %}
+            <button type="button" class="btn btn-sm {{ btn2Style }} ez-modal-btn" data-bs-toggle="modal" data-bs-target="#ezInfoModal-{{ elementId }}">
+                {{ btn2Text }}
+            </button>
+        {% endif %}
+    </div>
+
+    {# Modal 1: Produktdetails & Produktsicherheit (GPSR VO EU 2023/988) #}
+    <div class="modal fade ez-legal-modal" id="ezDetailModal-{{ elementId }}" tabindex="-1" aria-labelledby="ezDetailModalLabel-{{ elementId }}" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ezDetailModalLabel-{{ elementId }}"><strong>{{ btn1Text }}</strong></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ 'erniez28.blocks.legalModals.close'|trans|default('Schließen') }}"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="accordion accordion-flush" id="ezAccordionDetail-{{ elementId }}">
+                        {# 1. Material #}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingMat-{{ elementId }}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMat-{{ elementId }}" aria-expanded="false" aria-controls="collapseMat-{{ elementId }}">
+                                    <strong>{{ config.materialTitle.value|default('Material & Zusammensetzung') }}</strong>
+                                </button>
+                            </h2>
+                            <div id="collapseMat-{{ elementId }}" class="accordion-collapse collapse" aria-labelledby="headingMat-{{ elementId }}" data-bs-parent="#ezAccordionDetail-{{ elementId }}">
+                                <div class="accordion-body">
+                                    {{ config.materialText.value|default('Hochwertige Textilfasern. Detaillierte Angaben zur Faserzusammensetzung entnehmen Sie bitte dem Einnähetikett bzw. der Produktbeschreibung.')|nl2br }}
+                                </div>
+                            </div>
+                        </div>
+
+                        {# 2. Pflegehinweis #}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingCare-{{ elementId }}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCare-{{ elementId }}" aria-expanded="false" aria-controls="collapseCare-{{ elementId }}">
+                                    <strong>{{ config.careTitle.value|default('Pflegehinweise') }}</strong>
+                                </button>
+                            </h2>
+                            <div id="collapseCare-{{ elementId }}" class="accordion-collapse collapse" aria-labelledby="headingCare-{{ elementId }}" data-bs-parent="#ezAccordionDetail-{{ elementId }}">
+                                <div class="accordion-body">
+                                    {{ config.careText.value|default('Maschinenwäsche bei maximal 30°C auf links. Nicht direkt über Aufdrucke oder Veredelungen bügeln. Nicht im Trockner trocknen.')|nl2br }}
+                                </div>
+                            </div>
+                        </div>
+
+                        {# 3. GPSR EU VO 2023/988 #}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingGpsr-{{ elementId }}">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGpsr-{{ elementId }}" aria-expanded="true" aria-controls="collapseGpsr-{{ elementId }}">
+                                    <strong>{{ config.gpsrTitle.value|default('Produktsicherheit & Verantwortlicher EU-Wirtschaftsakteur (GPSR)') }}</strong>
+                                </button>
+                            </h2>
+                            <div id="collapseGpsr-{{ elementId }}" class="accordion-collapse collapse show" aria-labelledby="headingGpsr-{{ elementId }}" data-bs-parent="#ezAccordionDetail-{{ elementId }}">
+                                <div class="accordion-body">
+                                    <p class="mb-2"><strong>Verantwortlicher Hersteller &amp; Wirtschaftsakteur gemäß EU-Verordnung 2023/988:</strong></p>
+                                    <p class="mb-1"><strong>{{ config.gpsrManufacturer.value|default('SEE-Coding / Erniez28 Commerce') }}</strong></p>
+                                    <p class="mb-1">{{ config.gpsrAddress.value|default('Deutschland')|nl2br }}</p>
+                                    <p class="mb-2">E-Mail: <a href="mailto:{{ config.gpsrEmail.value|default('info@see-coding.de') }}">{{ config.gpsrEmail.value|default('info@see-coding.de') }}</a></p>
+                                    {% if config.gpsrModel.value %}
+                                        <p class="mb-0 text-muted small">Modell- / Chargenidentifikator: {{ config.gpsrModel.value }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        {# 4. Passform #}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFit-{{ elementId }}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFit-{{ elementId }}" aria-expanded="false" aria-controls="collapseFit-{{ elementId }}">
+                                    <strong>{{ config.fitTitle.value|default('Passform & Größenberatung') }}</strong>
+                                </button>
+                            </h2>
+                            <div id="collapseFit-{{ elementId }}" class="accordion-collapse collapse" aria-labelledby="headingFit-{{ elementId }}" data-bs-parent="#ezAccordionDetail-{{ elementId }}">
+                                <div class="accordion-body">
+                                    {{ config.fitText.value|default('Reguläre Passform (True to Size). Für einen lockeren Oversized-Look empfehlen wir eine Nummer größer.')|nl2br }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# Modal 2: Shop-Infos & Rechtliches #}
+    <div class="modal fade ez-legal-modal" id="ezInfoModal-{{ elementId }}" tabindex="-1" aria-labelledby="ezInfoModalLabel-{{ elementId }}" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ezInfoModalLabel-{{ elementId }}"><strong>{{ btn2Text }}</strong></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ 'erniez28.blocks.legalModals.close'|trans|default('Schließen') }}"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush ez-info-links-list">
+                        {% if config.faqUrl.value|default('/faq') %}
+                            <li class="list-group-item bg-transparent px-0 py-2">
+                                <a href="{{ config.faqUrl.value|default('/faq') }}" class="d-flex align-items-center text-decoration-none" target="_blank" rel="noopener noreferrer">
+                                    <span class="me-2">❓</span> {{ config.faqTitle.value|default('Häufig gestellte Fragen (FAQ)') }}
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if config.shippingUrl.value|default('/versand-und-zahlung') %}
+                            <li class="list-group-item bg-transparent px-0 py-2">
+                                <a href="{{ config.shippingUrl.value|default('/versand-und-zahlung') }}" class="d-flex align-items-center text-decoration-none" target="_blank" rel="noopener noreferrer">
+                                    <span class="me-2">📦</span> {{ config.shippingTitle.value|default('Versandinformationen & Zahlungsarten') }}
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if config.carePageUrl.value|default('/pflegehinweise') %}
+                            <li class="list-group-item bg-transparent px-0 py-2">
+                                <a href="{{ config.carePageUrl.value|default('/pflegehinweise') }}" class="d-flex align-items-center text-decoration-none" target="_blank" rel="noopener noreferrer">
+                                    <span class="me-2">👕</span> {{ config.carePageTitle.value|default('Ausführliche Pflegehinweise') }}
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if config.revocationUrl.value|default('/widerruf') %}
+                            <li class="list-group-item bg-transparent px-0 py-2">
+                                <a href="{{ config.revocationUrl.value|default('/widerruf') }}" class="d-flex align-items-center text-decoration-none" target="_blank" rel="noopener noreferrer">
+                                    <span class="me-2">📄</span> {{ config.revocationTitle.value|default('Widerrufsrecht & Musterformular') }}
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

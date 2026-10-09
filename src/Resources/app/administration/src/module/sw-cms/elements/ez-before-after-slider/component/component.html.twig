@@ -1,0 +1,10 @@
+<div class="sw-cms-el-ez-before-after-slider">
+    <div v-if="beforeUrl && afterUrl" class="ez-ba-admin-preview">
+        <img :src="beforeUrl" class="ez-ba-admin-img">
+        <div class="ez-ba-admin-divider"></div>
+        <img :src="afterUrl" class="ez-ba-admin-img">
+    </div>
+    <div v-else class="ez-ba-admin-placeholder">
+        <p>🖼 Vorher- & Nachher-Bilder in der Konfiguration auswählen</p>
+    </div>
+</div>

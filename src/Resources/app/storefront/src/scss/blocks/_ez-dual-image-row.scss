@@ -1,0 +1,95 @@
+// ==============================================================================
+// Erniez28 Custom Blocks - Dual Image Asymmetrical Row (75/25 and 25/75)
+// ==============================================================================
+
+.ez-dual-image-row,
+.dual-image-row {
+    --ez-dual-image-gap: 0;
+    --ez-dual-image-height: clamp(20rem, 38vw, 44rem);
+
+    display: flex;
+    width: 100%;
+    height: var(--ez-dual-image-height);
+    gap: var(--ez-dual-image-gap);
+    overflow: hidden;
+
+    &__cell {
+        overflow: hidden;
+        position: relative;
+        flex-shrink: 0;
+        min-width: 0;
+        height: 100%;
+        display: flex;
+
+        .cms-element-image,
+        .cms-element-alignment,
+        .cms-image-container,
+        .cms-image-link,
+        .cms-element-ez-dual-image-cell,
+        .cms-element-bp-dual-image-cell,
+        .ez-dual-image-cell__link,
+        .dual-image-cell__link {
+            height: 100%;
+            width: 100%;
+            display: block;
+            margin: 0;
+        }
+
+        .cms-image-container {
+            max-width: none !important;
+            min-height: 100%;
+
+            &.is-cover,
+            &.is-contain {
+                min-height: 100%;
+            }
+
+            img {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover;
+                display: block;
+            }
+        }
+
+        .ez-dual-image-cell__img,
+        .dual-image-cell__img,
+        img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    &--larger-left {
+        .ez-dual-image-row__cell--left,
+        .dual-image-row__cell--left {
+            flex: 3;
+        }
+
+        .ez-dual-image-row__cell--right,
+        .dual-image-row__cell--right {
+            flex: 1;
+        }
+    }
+
+    &--larger-right {
+        .ez-dual-image-row__cell--left,
+        .dual-image-row__cell--left {
+            flex: 1;
+        }
+
+        .ez-dual-image-row__cell--right,
+        .dual-image-row__cell--right {
+            flex: 3;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .ez-dual-image-row,
+    .dual-image-row {
+        --ez-dual-image-height: clamp(16rem, 80vw, 30rem);
+    }
+}

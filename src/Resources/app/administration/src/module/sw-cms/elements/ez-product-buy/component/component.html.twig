@@ -1,0 +1,41 @@
+<div class="sw-cms-el-buy-box__skeleton">
+    <div class="sw-cms-el-buy-box__placeholder"></div>
+    <div class="sw-cms-el-buy-box__placeholder"></div>
+    <div class="sw-cms-el-buy-box__placeholder"></div>
+    <div class="sw-cms-el-buy-box__placeholder"></div>
+    <div class="sw-cms-el-buy-box__form">
+        <sw-block-field class="sw-cms-el-buy-box__quantity">
+            <template #sw-field-input>
+                <select>
+                    <option
+                        value="1"
+                        selected
+                    >
+                        1
+                    </option>
+                </select>
+                <div class="sw-cms-el-buy-box__icon">
+                    <sw-icon
+                        name="regular-chevron-up-xxs"
+                        small
+                        decorative
+                    />
+                    <sw-icon
+                        name="regular-chevron-down-xxs"
+                        small
+                        decorative
+                    />
+                </div>
+            </template>
+        </sw-block-field>
+        
+        <div class="sw-cms-el-buy-box__actions">
+            <a
+                href="#"
+                class="sw-cms-el-buy-box__buy-action"
+            >
+                {{ $tc('sw-cms.elements.buyBox.component.label.actionBuy') }}
+            </a>
+        </div>
+    </div>
+</div>

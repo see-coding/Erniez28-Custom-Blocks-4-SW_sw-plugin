@@ -1,0 +1,24 @@
+.sw-cms-preview-ez-marquee-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 48px;
+
+    &__bar {
+        width: 100%;
+        background: #0f172a;
+        padding: 8px 0;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    &__text {
+        color: #ffffff;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+}

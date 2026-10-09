@@ -1,0 +1,16 @@
+.sw-cms-preview-ez-dual-image-row-25-75 {
+    display: flex;
+    gap: 4px;
+    padding: 6px;
+    height: 100%;
+
+    .preview-box {
+        background: #e2e8f0;
+        border: 1px dashed #94a3b8;
+        border-radius: 4px;
+        min-height: 48px;
+
+        &--small { flex: 1; }
+        &--large { flex: 3; }
+    }
+}

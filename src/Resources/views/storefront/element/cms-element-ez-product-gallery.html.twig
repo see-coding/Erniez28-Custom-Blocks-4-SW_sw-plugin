@@ -1,0 +1,101 @@
+{% block ez_element_image_gallery %}
+    {% set mediaItems = [] %}
+    {% if element.fieldConfig is defined and element.data is defined and element.data and element.data.sliderItems %}
+        {% for item in element.data.sliderItems %}
+            {% if item.media %}
+                {% set mediaItems = mediaItems|merge([item.media]) %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% if fallbackImageTitle is not defined %}
+        {% set fallbackImageTitle = page.product.translated.name|default('') %}
+    {% endif %}
+
+    {# @var mediaItems \Shopware\Core\Content\Media\MediaCollection #}
+    {% set imageCount = mediaItems|length %}
+
+    {% set detailOptions = {
+        config: {
+            magnifierOverGallery: true,
+            fullScreen: true,
+            zoom: true
+        }
+    } %}
+
+    <div class="ez-product-gallery-media ez-detail-media
+        {% if element.config.fullScreen.value %}is-fullscreen-allow{% endif %}
+        {% if element.config.magnifierOverGallery.value %}is-magnifier-allow{% endif %}
+        {% if element.config.galleryPosition.value is same as('right') %}is-thumbs-right{% endif %}"
+        {% if imageCount > 0 %}
+            data-ez-product-detail-media="true"
+            data-ez-product-detail-media-options="{{ detailOptions|json_encode }}"
+        {% endif %}
+    >
+        <button type="button" class="btn-fullscreen-close js-btn-fullscreen-close" aria-label="{{ 'general.close'|trans|default('Schließen') }}">
+            {% sw_icon 'x' style { size: 'sm' } %}
+        </button>
+
+        {# Thumbnail Navigation Slider #}
+        {% if imageCount > 1 %}
+            <div class="ez-detail-media-thumbs">
+                <div class="swiper ez-detail-media-thumbs-slider js-thumbs">
+                    <div class="swiper-button-prev ez-detail-media-thumbs-btn-nav"></div>
+                    <div class="swiper-button-next ez-detail-media-thumbs-btn-nav"></div>
+                    <div class="swiper-wrapper">
+                        {% for image in mediaItems %}
+                            {% set aspectRatio = (image.metaData and image.metaData.height) ? (image.metaData.width / image.metaData.height) : 1 %}
+                            <div class="swiper-slide ez-detail-media-thumbs-slider-slide js-thumbs-slide">
+                                <picture style="--aspect-ratio:{{ aspectRatio }};">
+                                    {% sw_thumbnails 'gallery-slider-image-thumbnails' with {
+                                        media: image,
+                                        attributes: {
+                                            'class': 'ez-detail-media-thumbs-slider-slide-img',
+                                            'alt': (image.translated.alt ?: fallbackImageTitle),
+                                            'title': (image.translated.title ?: fallbackImageTitle)
+                                        }
+                                    } %}
+                                </picture>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {# Main Media Image Slider #}
+        {% if imageCount > 0 %}
+            <div class="ez-detail-media-images">
+                <div class="swiper ez-detail-media-images-slider js-images">
+                    <div class="swiper-button-prev ez-detail-media-images-btn-nav"></div>
+                    <div class="swiper-button-next ez-detail-media-images-btn-nav"></div>
+                    <div class="swiper-wrapper">
+                        {% for image in mediaItems %}
+                            {% set aspectRatio = (image.metaData and image.metaData.height) ? (image.metaData.width / image.metaData.height) : 1 %}
+                            <div class="swiper-slide ez-detail-media-images-slider-slide js-images-slide">
+                                <div class="ez-detail-media-images-slider-slide-inner">
+                                    <div class="zoomist-container">
+                                        <div class="zoomist-wrapper">
+                                            <div class="zoomist-image">
+                                                <picture style="--aspect-ratio:{{ aspectRatio }};">
+                                                    {% sw_thumbnails 'ez-detail-media-images-slider-slide-img' with {
+                                                        media: image,
+                                                        attributes: {
+                                                            'class': 'ez-detail-media-images-slider-slide-img',
+                                                            'alt': (image.translated.alt ?: fallbackImageTitle),
+                                                            'title': (image.translated.title ?: fallbackImageTitle)
+                                                        }
+                                                    } %}
+                                                </picture>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

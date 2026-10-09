@@ -1,0 +1,2 @@
+const e='<div class="ez-product-gallery-preview-elements"> <div class="sw-cms-el-preview-image-gallery__grid"> <div class="item"></div> <div class="item"></div> <div class="item"></div> </div> <div class="sw-cms-el-preview-image-gallery__main"></div> </div>',i={template:e,computed:{assetFilter(){return Shopware.Filter.getByName("asset")}}};export{i as default};
+//# sourceMappingURL=index-6oebeCld.js.map

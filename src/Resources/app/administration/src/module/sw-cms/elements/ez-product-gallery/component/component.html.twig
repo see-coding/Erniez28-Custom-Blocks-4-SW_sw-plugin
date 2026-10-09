@@ -1,0 +1,63 @@
+<!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+<div
+    class="sw-cms-el-image-gallery"
+    :class="[galleryPositionClass, currentDeviceViewClass]"
+    :style="verticalAlignStyle"
+>
+
+    <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+    <div
+        ref="galleryItemHolder"
+        class="sw-cms-el-image-gallery__grid"
+    >
+
+        <template v-if="mediaUrls && mediaUrls.length">
+            <div class="sw-cms-el-image-gallery__item-holder">
+                <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                <template
+                    v-for="(sliderItem, index) in mediaUrls"
+                    :key="index"
+                >
+                    <sw-media-list-selection-item-v2
+                        v-if="index < galleryLimit"
+                        :item="sliderItem.media"
+                        :class="activeMediaClass(sliderItem.media)"
+                        hide-actions
+                        hide-tooltip
+                        @click="onChangeGalleryImage(sliderItem.media, index)"
+                    />
+                </template>
+                </div>
+        </template>
+
+        <template v-else>
+            <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+            <div class="sw-cms-el-image-gallery__item-holder">
+                <img
+                    v-for="mediaItem in getPlaceholderItems()"
+                    :key="mediaItem.url"
+                    class="sw-cms-el-image-gallery__item-placeholder"
+                    :src="mediaItem.url"
+                    alt=""
+                >
+            </div>
+            </template>
+
+        <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+        <div
+            v-if="element.config.sliderItems.value.length > galleryLimit"
+            class="sw-cms-el-image-gallery__grid-arrow"
+        >
+            <sw-icon
+                name="regular-chevron-down"
+                size="20"
+            />
+        </div>
+        </div>
+    <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+    <sw-cms-el-image-slider
+        :element="element"
+        :active-media="activeMedia"
+        @active-image-change="onChangeGalleryImage"
+    />
+    </div>

@@ -1,0 +1,29 @@
+<div class="sw-cms-el-config-bp-marquee-text">
+
+    
+    <sw-text-field
+        v-model:value="element.config.text.value"
+        :label="$tc('bp-cms.elements.marqueeText.config.textLabel')"
+        :placeholder="$tc('bp-cms.elements.marqueeText.config.textPlaceholder')">
+    </sw-text-field>
+
+    
+    <sw-colorpicker
+        v-model:value="element.config.bannerColor.value"
+        :label="$tc('bp-cms.elements.marqueeText.config.bannerColorLabel')">
+    </sw-colorpicker>
+
+    
+    <sw-colorpicker
+        v-model:value="element.config.textColor.value"
+        :label="$tc('bp-cms.elements.marqueeText.config.textColorLabel')">
+    </sw-colorpicker>
+
+    
+    <sw-single-select
+        v-model:value="element.config.speed.value"
+        :label="$tc('bp-cms.elements.marqueeText.config.speedLabel')"
+        :options="speedOptions">
+    </sw-single-select>
+
+</div>

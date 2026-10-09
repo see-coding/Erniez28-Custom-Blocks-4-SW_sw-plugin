@@ -1,0 +1,63 @@
+// ==============================================================================
+// Erniez28 Custom Blocks - Legal & GPSR Compliance Modals
+// ==============================================================================
+
+.ez-legal-modals-btn-container,
+.lp-legal-modals-btn-container {
+    .ez-modal-btn,
+    .lp-modal-btn {
+        font-weight: 600;
+        border-radius: 50px;
+        padding: 0.45rem 1.15rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        &:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+    }
+}
+
+.ez-legal-modal,
+.lp-legal-modal {
+    .modal-content {
+        border-radius: 14px;
+        border: none;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+        overflow: hidden;
+    }
+
+    .modal-header {
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #e9ecef;
+        padding: 1.25rem 1.5rem;
+    }
+
+    .modal-body {
+        padding: 1.5rem;
+    }
+
+    .accordion-button {
+        font-size: 0.95rem;
+
+        &:not(.collapsed) {
+            background-color: #f0f7ff;
+            color: #0b5ed7;
+        }
+    }
+
+    .ez-info-links-list,
+    .lp-info-links-list {
+        a {
+            color: #212529;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: color 0.2s ease, transform 0.2s ease;
+
+            &:hover {
+                color: #0d6efd;
+                transform: translateX(4px);
+            }
+        }
+    }
+}

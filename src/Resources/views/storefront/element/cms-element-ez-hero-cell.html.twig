@@ -1,0 +1,43 @@
+{% block element_ez_hero_cell %}
+    {% set backgroundMedia = element.data.backgroundMedia ?? null %}
+    {% set logoMedia = element.data.logoMedia ?? null %}
+    {% set url = element.translated.config.url.value ?? null %}
+
+    {# Background Media #}
+    {% if backgroundMedia %}
+        <div class="cms-element-image is-cover">
+            <div class="cms-image-container is-cover">
+                {% sw_thumbnails 'ez-hero-cell-background' with {
+                    media: backgroundMedia,
+                    attributes: {
+                        class: 'cms-image',
+                        alt: backgroundMedia.translated.alt ?? backgroundMedia.translated.title ?? 'Hero Background',
+                        loading: 'lazy'
+                    }
+                } %}
+            </div>
+        </div>
+    {% endif %}
+
+    {# Opaque / Carbon Overlay #}
+    <div class="ez-triple-hero__overlay-bg"></div>
+
+    {# Logo (revealed on top of overlay) #}
+    {% if logoMedia %}
+        <div class="ez-triple-hero__logo-wrap">
+            {% sw_thumbnails 'ez-hero-cell-logo' with {
+                media: logoMedia,
+                attributes: {
+                    class: 'ez-triple-hero__logo',
+                    alt: logoMedia.translated.alt ?? logoMedia.translated.title ?? 'Hero Logo',
+                    loading: 'lazy'
+                }
+            } %}
+        </div>
+    {% endif %}
+
+    {# Full Cell Accessible Link #}
+    {% if url %}
+        <a href="{{ url }}" class="ez-triple-hero__full-link" aria-label="{{ logoMedia.translated.title ?? backgroundMedia.translated.title ?? 'Explore category' }}"></a>
+    {% endif %}
+{% endblock %}

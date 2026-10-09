@@ -1,0 +1,30 @@
+.sw-cms-el-bp-marquee-text {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 12px 0;
+
+    &__track {
+        display: inline-flex;
+        animation: bp-marquee-admin-scroll linear infinite;
+        animation-duration: 20s;
+    }
+
+    &__content {
+        font-size: 2rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        flex-shrink: 0;
+        padding: 0 1rem;
+    }
+}
+
+@keyframes bp-marquee-admin-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}

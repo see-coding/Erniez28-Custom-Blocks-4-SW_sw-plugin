@@ -1,0 +1,15 @@
+.sw-cms-block-ez-dual-image-row {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+
+    .dual-image-row__cell {
+        overflow: hidden;
+        min-height: 120px;
+        display: flex;
+        flex-direction: column;
+
+        &--left { flex: 3; }
+        &--right { flex: 1; }
+    }
+}

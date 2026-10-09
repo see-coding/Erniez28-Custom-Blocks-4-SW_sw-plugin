@@ -1,0 +1,12 @@
+{% block block_ez_marquee_text %}
+    {% set slot = block.slots.getSlot('content') %}
+    {% if slot %}
+        <div class="col-12" data-cms-element-id="{{ slot.id }}">
+            {% block block_ez_marquee_text_inner %}
+                {% sw_include "@Storefront/storefront/element/cms-element-" ~ slot.type ~ ".html.twig" ignore missing with {
+                    element: slot
+                } %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

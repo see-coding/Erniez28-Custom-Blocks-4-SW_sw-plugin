@@ -1,0 +1,9 @@
+<div class="sw-cms-el-bp-dual-image-cell">
+    <div v-if="mediaUrl" class="sw-cms-el-bp-dual-image-cell__preview">
+        <img :src="mediaUrl" :alt="altText" class="sw-cms-el-bp-dual-image-cell__img">
+    </div>
+    <div v-else class="sw-cms-el-bp-dual-image-cell__placeholder">
+        <mt-icon name="regular-image" size="40px"></mt-icon>
+        <p>Kein Bild ausgewählt</p>
+    </div>
+</div>

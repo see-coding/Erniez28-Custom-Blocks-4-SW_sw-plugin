@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title lang="de-DE">Allgemeine Einstellungen</title>
+        <title lang="en-GB">General Settings</title>
+
+        <input-field type="bool">
+            <name>enableCustomStyles</name>
+            <label lang="de-DE">Block-Stile &amp; Micro-Interaktionen aktivieren</label>
+            <label lang="en-GB">Enable block styles &amp; micro-interactions</label>
+            <helpText lang="de-DE">Lädt die optimierten Storefront-SCSS-Stile für alle Erniez28-Erlebniswelt-Blöcke.</helpText>
+            <helpText lang="en-GB">Loads the optimized storefront SCSS styles for all Erniez28 CMS blocks.</helpText>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>enableHoverOverlays</name>
+            <label lang="de-DE">Kategorie- &amp; Bild-Hover-Overlays aktivieren</label>
+            <label lang="en-GB">Enable category &amp; image hover overlays</label>
+            <helpText lang="de-DE">Aktiviert Bildüberlagerungen für Streetwear- und Fashion-Mosaike.</helpText>
+            <helpText lang="en-GB">Enables image overlay graphics for streetwear and fashion mosaic rows.</helpText>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>enableSchemaOrgFAQ</name>
+            <label lang="de-DE">Schema.org JSON-LD für FAQ-Akkordeon aktivieren</label>
+            <label lang="en-GB">Enable Schema.org JSON-LD for FAQ accordion</label>
+            <helpText lang="de-DE">Generiert automatisch strukturierte Rich-Snippet-Daten (FAQPage) für Suchmaschinen.</helpText>
+            <helpText lang="en-GB">Automatically generates structured rich snippet data (FAQPage) for search engines.</helpText>
+            <defaultValue>true</defaultValue>
+        </input-field>
+    </card>
+</config>

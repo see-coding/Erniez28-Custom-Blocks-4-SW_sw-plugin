@@ -1,0 +1,59 @@
+<div class="sw-cms-el-config-bp-hero-cell">
+    
+    <div class="sw-cms-el-config-bp-hero-cell__media-section">
+        <sw-cms-mapping-field
+            v-model:config="element.config.backgroundMedia"
+            :label="$tc('sw-cms.elements.image.label')"
+            valueTypes="entity"
+            entity="media"
+            class="sw-cms-el-config-bp-hero-cell__background-media">
+            
+            <sw-media-compact-upload-v2
+                variant="regular"
+                label="Hintergrundbild (sichtbar bei Hover)"
+                :source="element.config.backgroundMedia?.value"
+                :allowMultiSelect="false"
+                :uploadTag="uploadTagBackground"
+                :defaultFolder="cmsPageState.defaultMediaFolderId"
+                @selection-change="onBackgroundMediaUpload"
+                @media-upload-remove-image="onBackgroundMediaRemove">
+            </sw-media-compact-upload-v2>
+            
+        </sw-cms-mapping-field>
+    </div>
+
+
+
+    <div class="sw-cms-el-config-bp-hero-cell__media-section">
+        <sw-cms-mapping-field
+            v-model:config="element.config.logoMedia"
+            :label="$tc('sw-cms.elements.image.label')"
+            valueTypes="entity"
+            entity="media"
+            class="sw-cms-el-config-bp-hero-cell__logo-media">
+            
+            <sw-media-compact-upload-v2
+                variant="regular"
+                label="Logo-Bild (Overlay, sichtbar vor Hover)"
+                :source="element.config.logoMedia?.value"
+                :allowMultiSelect="false"
+                :uploadTag="uploadTagLogo"
+                :defaultFolder="cmsPageState.defaultMediaFolderId"
+                @selection-change="onLogoMediaUpload"
+                @media-upload-remove-image="onLogoMediaRemove">
+            </sw-media-compact-upload-v2>
+            
+        </sw-cms-mapping-field>
+    </div>
+
+
+
+    <div class="sw-cms-el-config-bp-hero-cell__url-section">
+        <label style="display:block; margin-bottom: 4px; font-weight: 600; font-size: 14px;">Link für Zelle (optional)</label>
+        <sw-dynamic-url-field
+            v-model:value="element.config.url.value"
+            @update:value="emitUpdate"
+        />
+    </div>
+
+</div>

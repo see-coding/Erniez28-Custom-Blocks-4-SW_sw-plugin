@@ -1,0 +1,10 @@
+import template from './preview.html.twig';
+import './preview.scss';
+
+/**
+ * @private
+ * @package buyers-experience
+ */
+export default {
+    template,
+};

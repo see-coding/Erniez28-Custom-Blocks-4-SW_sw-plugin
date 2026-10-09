@@ -1,0 +1,12 @@
+{% block block_ez_split_image_hover %}
+    {% set slotContent = block.slots.getSlot('content') %}
+    {% if slotContent %}
+        <div class="col-12" data-cms-element-id="{{ slotContent.id }}">
+            {% block block_ez_split_image_hover_inner %}
+                {% sw_include "@Storefront/storefront/element/cms-element-" ~ slotContent.type ~ ".html.twig" ignore missing with {
+                    element: slotContent
+                } %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

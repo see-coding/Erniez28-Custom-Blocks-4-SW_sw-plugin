@@ -1,0 +1,40 @@
+// ==============================================================================
+// Erniez28 Custom Blocks - Reusable Utilities
+// ==============================================================================
+
+.ez-row-vcenter,
+.bp-row-vcenter {
+    &.cms-block,
+    .cms-block-container-row,
+    .cms-row,
+    .row {
+        align-items: center;
+    }
+}
+
+.ez-extra-headlines,
+.bp-extra-headlines {
+    h1, .h1 { font-size: 5rem; }
+    h2, .h2 { font-size: 3.75rem; }
+    h3, .h3 { font-size: 2.75rem; }
+    h4, .h4 { font-size: 2rem; }
+    h5, .h5 { font-size: 1.5rem; }
+
+    h1, h2, h3, h4, h5,
+    .h1, .h2, .h3, .h4, .h5 {
+        color: #e52427;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0;
+        line-height: 1.05;
+    }
+}
+
+@media (max-width: 768px) {
+    .ez-extra-headlines,
+    .bp-extra-headlines {
+        h1, .h1 { font-size: 3rem; }
+        h2, .h2 { font-size: 2.5rem; }
+        h3, .h3 { font-size: 2rem; }
+    }
+}

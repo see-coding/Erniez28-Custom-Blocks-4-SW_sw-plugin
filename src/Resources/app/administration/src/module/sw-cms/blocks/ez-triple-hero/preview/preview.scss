@@ -1,0 +1,19 @@
+.sw-cms-preview-ez-triple-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2px;
+    padding: 4px;
+    width: 100%;
+
+    .preview-hero {
+        background: #e2e8f0;
+        border: 1px dashed #94a3b8;
+        border-radius: 2px;
+        min-height: 36px;
+
+        &--bottom {
+            grid-column: 1 / -1;
+            min-height: 24px;
+        }
+    }
+}

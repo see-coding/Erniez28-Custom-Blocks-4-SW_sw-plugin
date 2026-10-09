@@ -1,0 +1,16 @@
+<div class="sw-cms-el-bp-split-image-hover">
+        <div class="sw-cms-el-bp-split-image-hover__gallery" v-if="image1Url || image2Url">
+            <div class="split-preview-item split-preview-upper">
+                <img v-if="image1Url" :src="image1Url" alt="Image 1">
+                <div v-else class="placeholder">Bild 1</div>
+            </div>
+            <div class="split-preview-item split-preview-lower">
+                <img v-if="image2Url" :src="image2Url" alt="Image 2">
+                <div v-else class="placeholder">Bild 2</div>
+            </div>
+        </div>
+        <div class="sw-cms-el-bp-split-image-hover__placeholder" v-else>
+            <sw-icon name="regular-image" size="40px"></sw-icon>
+            <p>Split Image Hover – bitte zwei Bilder konfigurieren</p>
+        </div>
+    </div>

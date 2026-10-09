@@ -1,0 +1,56 @@
+<div class="sw-cms-el-config-ez-before-after-slider">
+    <!-- Vorher Bild -->
+    <sw-cms-mapping-field
+        v-model:config="element.config.mediaBefore"
+        label="Bild Vorher (Original)"
+        valueTypes="entity"
+        entity="media">
+        <sw-media-compact-upload-v2
+            variant="regular"
+            label="Bild Vorher auswählen"
+            :source="element.config.mediaBefore.value"
+            :allowMultiSelect="false"
+            :defaultFolder="cmsPageState.defaultMediaFolderId"
+            @selection-change="onMediaBeforeUpload"
+            @media-upload-remove-image="onMediaBeforeRemove">
+        </sw-media-compact-upload-v2>
+    </sw-cms-mapping-field>
+
+    <!-- Nachher Bild -->
+    <sw-cms-mapping-field
+        v-model:config="element.config.mediaAfter"
+        label="Bild Nachher (Ergebnis)"
+        valueTypes="entity"
+        entity="media"
+        class="mt-3">
+        <sw-media-compact-upload-v2
+            variant="regular"
+            label="Bild Nachher auswählen"
+            :source="element.config.mediaAfter.value"
+            :allowMultiSelect="false"
+            :defaultFolder="cmsPageState.defaultMediaFolderId"
+            @selection-change="onMediaAfterUpload"
+            @media-upload-remove-image="onMediaAfterRemove">
+        </sw-media-compact-upload-v2>
+    </sw-cms-mapping-field>
+
+    <sw-text-field
+        v-model:value="element.config.labelBefore.value"
+        label="Label Vorher"
+        class="mt-3">
+    </sw-text-field>
+
+    <sw-text-field
+        v-model:value="element.config.labelAfter.value"
+        label="Label Nachher"
+        class="mt-2">
+    </sw-text-field>
+
+    <sw-number-field
+        v-model:value="element.config.initialPosition.value"
+        label="Start-Position (%)"
+        :min="0"
+        :max="100"
+        class="mt-2">
+    </sw-number-field>
+</div>

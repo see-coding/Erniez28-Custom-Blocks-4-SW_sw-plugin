@@ -1,0 +1,38 @@
+{
+  "erniez28": {
+    "blocks": {
+      "productDetail": {
+        "brand": "Marke",
+        "productNumber": "Artikel-Nr."
+      },
+      "beforeAfter": {
+        "before": "Vorher",
+        "after": "Nachher",
+        "sliderLabel": "Bildvergleich Schieberegler"
+      },
+      "legalModals": {
+        "productSafety": "Produktdetails & Produktsicherheit (GPSR)",
+        "shopInfo": "Shop-Infos & Rechtliches",
+        "close": "Schließen"
+      },
+      "minimalFooter": {
+        "impressum": "Impressum",
+        "datenschutz": "Datenschutz",
+        "widerruf": "Widerrufsbelehrung",
+        "versand": "Versand & Zahlung",
+        "agb": "AGB",
+        "cookies": "Cookies"
+      },
+      "usp": {
+        "shippingTitle": "Kostenloser Versand",
+        "shippingText": "Schnelle & klimaneutrale Lieferung ab 50 € Bestellwert",
+        "qualityTitle": "Geprüfte Qualität",
+        "qualityText": "Hochwertige Textilien und langlebige Veredelung",
+        "securityTitle": "Sichere Bezahlung",
+        "securityText": "SSL-verschlüsselt mit PayPal, Klarna & Kreditkarte",
+        "supportTitle": "Persönlicher Support",
+        "supportText": "Kompetente Beratung und einfache Rückabwicklung"
+      }
+    }
+  }
+}

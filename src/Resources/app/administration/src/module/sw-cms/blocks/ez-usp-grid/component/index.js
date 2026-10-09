@@ -1,0 +1,4 @@
+import template from './component.html.twig';
+import './component.scss';
+
+Shopware.Component.register('sw-cms-block-ez-usp-grid', { template });

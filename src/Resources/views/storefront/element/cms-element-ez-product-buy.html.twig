@@ -1,0 +1,61 @@
+{% block ez_element_buy_box %}
+    {% set config = element.fieldConfig.elements %}
+    {% set buyBoxOptions = {
+        elementId: element.id
+    } %}
+
+    {% if element.data and element.data.product %}
+        <div class="ez-product-detail-buy-wrapper">
+            <div class="ez-product-detail-name-container">
+                <h1 class="ez-product-detail-name" itemprop="name">
+                    {{ element.data.product.translated.name }}
+                </h1>
+                <div class="ez-product-detail-info">
+                    {% if element.data.product.productNumber %}
+                        <div class="product-detail-ordernumber-container">
+                            <span class="product-detail-ordernumber-label">
+                                {{ "detail.productNumberLabel"|trans|sw_sanitize }}:
+                            </span>
+                            <span class="product-detail-ordernumber">
+                                {{ element.data.product.productNumber }}
+                            </span>
+                        </div>
+                    {% endif %}
+                    {% if element.data.product.manufacturer %}
+                        <div class="product-detail-manufacturer-container">
+                            <span class="product-detail-ordernumber-label">
+                                {{ "erniez28.blocks.productDetail.brand"|trans|default('Marke')|sw_sanitize }}:
+                            </span>
+                            <span class="product-detail-manufacturer">
+                                {{ element.data.product.manufacturer.translated.name }}
+                            </span>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="cms-element-{{ element.type }}{% if config.alignment.value %} has-vertical-alignment{% endif %}"
+                data-buy-box="true"
+                data-buy-box-options='{{ buyBoxOptions|json_encode }}'>
+
+                {% block ez_element_buy_box_inner %}
+                    {% if config.alignment.value %}
+                        <div class="cms-element-alignment{% if config.alignment.value == "center" %} align-self-center{% elseif config.alignment.value == "flex-end" %} align-self-end{% else %} align-self-start{% endif %}">
+                    {% endif %}
+
+                    {% sw_include '@Storefront/storefront/component/buy-widget/buy-widget.html.twig' with {
+                        'product': element.data.product,
+                        'configuratorSettings': element.data.configuratorSettings,
+                        'totalReviews': element.data.totalReviews,
+                        'elementId': element.id,
+                        'pageType': cmsPage.type
+                    } %}
+
+                    {% if config.alignment.value %}
+                        </div>
+                    {% endif %}
+                {% endblock %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

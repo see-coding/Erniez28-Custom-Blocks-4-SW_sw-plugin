@@ -1,0 +1,81 @@
+{% block element_ez_faq_accordion %}
+    {% set config = element.fieldConfig ? element.fieldConfig.elements : null %}
+    {% set elementId = element.id|default('ez-faq-' ~ random()) %}
+    {% set headline = (config and config.headline and config.headline.value) ? config.headline.value : 'Häufig gestellte Fragen (FAQ)' %}
+
+    {% set faqItems = [
+        {
+            'question': (config and config.q1 and config.q1.value) ? config.q1.value : 'Wie lange dauert der Versand?',
+            'answer': (config and config.a1 and config.a1.value) ? config.a1.value : 'In der Regel wird Ihre Bestellung innerhalb von 1-3 Werktagen nach Zahlungseingang versendet. Sie erhalten eine Sendungsverfolgung per E-Mail.'
+        },
+        {
+            'question': (config and config.q2 and config.q2.value) ? config.q2.value : 'Welche Zahlungsmethoden stehen zur Verfügung?',
+            'answer': (config and config.a2 and config.a2.value) ? config.a2.value : 'Wir bieten sichere Bezahlung per PayPal, Klarna (Rechnung & Sofort), Kreditkarte (Visa, Mastercard, Amex) und Apple Pay an.'
+        },
+        {
+            'question': (config and config.q3 and config.q3.value) ? config.q3.value : 'Wie läuft eine Rücksendung oder ein Umtausch ab?',
+            'answer': (config and config.a3 and config.a3.value) ? config.a3.value : 'Sie haben ein 14-tägiges Widerrufsrecht. Kontaktieren Sie einfach unseren Kundenservice, um ein Rücksendeetikett anzufordern.'
+        },
+        {
+            'question': (config and config.q4 and config.q4.value) ? config.q4.value : 'Wie pflege ich die bedruckten Textilien am besten?',
+            'answer': (config and config.a4 and config.a4.value) ? config.a4.value : 'Waschen Sie die Kleidungsstücke bitte bei maximal 30°C auf links. Nicht direkt über Aufdrucke bügeln und keinen Wäschetrockner verwenden.'
+        }
+    ] %}
+
+    <div class="cms-element-ez-faq-accordion ez-faq-wrapper" id="{{ elementId }}">
+        {% if headline %}
+            <h2 class="ez-faq-headline text-center mb-4">{{ headline }}</h2>
+        {% endif %}
+
+        <div class="accordion ez-faq-accordion" id="accordion-{{ elementId }}">
+            {% for item in faqItems %}
+                {% set itemId = elementId ~ '-item-' ~ loop.index %}
+                <div class="accordion-item ez-faq-item">
+                    <h3 class="accordion-header ez-faq-header" id="heading-{{ itemId }}">
+                        <button class="accordion-button ez-faq-button {% if not loop.first %}collapsed{% endif %}"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapse-{{ itemId }}"
+                                aria-expanded="{{ loop.first ? 'true' : 'false' }}"
+                                aria-controls="collapse-{{ itemId }}">
+                            <span class="ez-faq-q-text">{{ item.question }}</span>
+                        </button>
+                    </h3>
+                    <div id="collapse-{{ itemId }}"
+                         class="accordion-collapse collapse {% if loop.first %}show{% endif %}"
+                         aria-labelledby="heading-{{ itemId }}"
+                         data-bs-parent="#accordion-{{ elementId }}">
+                        <div class="accordion-body ez-faq-body">
+                            {{ item.answer|nl2br }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        {# Schema.org Structured Data (JSON-LD) for SEO Rich Snippets #}
+        {% if config('Erniez28CustomBlocks4Sw.config.enableSchemaOrgFAQ') ?? true %}
+            {% set faqSchemaEntities = [] %}
+            {% for item in faqItems %}
+                {% set faqSchemaEntities = faqSchemaEntities|merge([{
+                    '@type': 'Question',
+                    'name': item.question,
+                    'acceptedAnswer': {
+                        '@type': 'Answer',
+                        'text': item.answer
+                    }
+                }]) %}
+            {% endfor %}
+
+            {% set faqSchema = {
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                'mainEntity': faqSchemaEntities
+            } %}
+
+            <script type="application/ld+json">
+                {{ faqSchema|json_encode|raw }}
+            </script>
+        {% endif %}
+    </div>
+{% endblock %}

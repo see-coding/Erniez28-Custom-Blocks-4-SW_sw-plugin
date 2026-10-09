@@ -1,0 +1,14 @@
+.sw-cms-block-ez-masonry-grid {
+    padding: 10px;
+    .ez-masonry-grid-internal {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+
+        > * {
+            background: #f0f2f5;
+            min-height: 90px;
+            border: 1px dashed #c1c5cc;
+        }
+    }
+}

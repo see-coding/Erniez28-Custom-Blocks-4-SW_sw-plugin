@@ -1,0 +1,85 @@
+// ==============================================================================
+// Erniez28 Custom Blocks - Hover Overlays (Streetwear & Mosaic Graphics)
+// ==============================================================================
+
+.ez-hover-overlay-marker,
+.ez-hover-overlay-oildirt,
+.ez-hover-overlay-scribble,
+.ez-hover-overlay-wheels,
+.bp-hover-overlay-marker,
+.bp-hover-overlay-oildirt,
+.bp-hover-overlay-scribble,
+.bp-hover-overlay-wheels {
+    --ez-hover-overlay-opacity: 0.88;
+    --ez-hover-overlay-duration: 360ms;
+    --ez-hover-overlay-scale: 1.035;
+    --ez-hover-overlay-size: 60%;
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 8;
+        pointer-events: none;
+        opacity: 0;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: var(--ez-hover-overlay-size) auto;
+        mix-blend-mode: multiply;
+        transform: scale(var(--ez-hover-overlay-scale));
+        transition:
+            opacity var(--ez-hover-overlay-duration) ease,
+            transform calc(var(--ez-hover-overlay-duration) + 120ms) ease;
+    }
+
+    &:hover::after,
+    &:focus-within::after {
+        opacity: var(--ez-hover-overlay-opacity);
+        transform: scale(1);
+    }
+}
+
+$asset-path: '' !default;
+
+.ez-hover-overlay-marker::after,
+.bp-hover-overlay-marker::after {
+    background-image: url('#{$asset-path}/bundles/erniez28customblocks4sw/static/img/hover-overlays/ez-overlay-marker-hover.png');
+}
+
+.ez-hover-overlay-oildirt::after,
+.bp-hover-overlay-oildirt::after {
+    background-image: url('#{$asset-path}/bundles/erniez28customblocks4sw/static/img/hover-overlays/ez-overlay-oildirt-hover.png');
+}
+
+.ez-hover-overlay-scribble::after,
+.bp-hover-overlay-scribble::after {
+    background-image: url('#{$asset-path}/bundles/erniez28customblocks4sw/static/img/hover-overlays/ez-overlay-scribble-hover.png');
+}
+
+.ez-hover-overlay-wheels::after,
+.bp-hover-overlay-wheels::after {
+    background-image: url('#{$asset-path}/bundles/erniez28customblocks4sw/static/img/hover-overlays/ez-overlay-wheels-hover.png');
+}
+
+// Category Overlays
+.ez-category-overlay,
+.bp-category-overlay {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 1.25rem;
+    z-index: 5;
+    background: rgba(0, 0, 0, 0.75);
+    color: #ffffff;
+    padding: 0.35rem 0.85rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    backdrop-filter: blur(4px);
+    pointer-events: none;
+}

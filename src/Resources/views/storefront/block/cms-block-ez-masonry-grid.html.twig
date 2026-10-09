@@ -1,0 +1,18 @@
+{% block block_ez_masonry_grid %}
+    <div class="cms-block-ez-masonry-grid ez-masonry-grid">
+        {% for i in 1..10 %}
+            {% set slotName = 'image' ~ i %}
+            {% set currentSlot = block.slots.getSlot(slotName) %}
+
+            {% if currentSlot and currentSlot.data and currentSlot.data.media %}
+                <div class="ez-masonry-grid__item">
+                    {% block block_ez_masonry_grid_image %}
+                        {% sw_include "@Storefront/storefront/element/cms-element-" ~ currentSlot.type ~ ".html.twig" ignore missing with {
+                            element: currentSlot
+                        } %}
+                    {% endblock %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

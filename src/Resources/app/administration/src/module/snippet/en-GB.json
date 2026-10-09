@@ -1,0 +1,110 @@
+{
+  "sw-cms": {
+    "detail": {
+      "label": {
+        "blockCategory": {
+          "erniez28-custom-blocks": "Erniez28 Custom Blocks",
+          "erniez28-theme-blocks": "Erniez28 Custom Blocks",
+          "bp-theme-blocks": "Erniez28 Custom Blocks"
+        }
+      }
+    }
+  },
+  "apps": {
+    "sw-cms": {
+      "detail": {
+        "label": {
+          "blockCategory": {
+            "erniez28-custom-blocks": "Erniez28 Custom Blocks",
+            "erniez28-theme-blocks": "Erniez28 Custom Blocks",
+            "bp-theme-blocks": "Erniez28 Custom Blocks"
+          }
+        }
+      }
+    }
+  },
+  "ez-cms": {
+    "blocks": {
+      "twoColRow": { "label": "2-Column Layout (Responsive)" },
+      "threeColRow": { "label": "3-Column Image Row (Full Width)" },
+      "sixColRow": { "label": "6-Column Micro-Cards / Brands Row" },
+      "dualImageRow": { "label": "Dual Image Row (75/25)" },
+      "dualImageRow2575": { "label": "Dual Image Row (25/75)" },
+      "tripleHero": { "label": "Triple Hero Teaser Showcase" },
+      "masonryGrid": { "label": "Dynamic Masonry Photo Grid" },
+      "splitImageHover": { "label": "Diagonal Split Image Hover Teaser" },
+      "marqueeText": { "label": "Marquee Scroll Text Banner" },
+      "productDetail": { "label": "Modern Product Showcase (Gallery & Buy Box)" },
+      "minimalFooter": { "label": "Minimal Landing Page Legal Footer" },
+      "legalModals": { "label": "EU GPSR & Legal Modal Buttons" },
+      "beforeAfterSlider": { "label": "Interactive Before/After Image Comparison" },
+      "uspGrid": { "label": "High-Conversion USP Trust Cards" },
+      "faqAccordion": { "label": "FAQ Accordion with Schema.org SEO" }
+    },
+    "elements": {
+      "marqueeText": {
+        "label": "Marquee Scroll Text",
+        "config": {
+          "textLabel": "Banner Text",
+          "textPlaceholder": "Enter scrolling text…",
+          "bannerColorLabel": "Background Color",
+          "textColorLabel": "Text Color",
+          "speedLabel": "Speed",
+          "speedSlow": "Slow",
+          "speedNormal": "Normal",
+          "speedFast": "Fast"
+        }
+      },
+      "beforeAfterSlider": {
+        "label": "Before/After Image Comparison",
+        "config": {
+          "labelBefore": "Before Label",
+          "labelAfter": "After Label",
+          "initialPosition": "Initial Slider Position (%)"
+        }
+      },
+      "uspGrid": {
+        "label": "USP Trust Cards",
+        "config": {
+          "title": "Title",
+          "text": "Description",
+          "badge": "Badge Label"
+        }
+      },
+      "faqAccordion": {
+        "label": "FAQ Accordion",
+        "config": {
+          "headline": "Main FAQ Headline",
+          "question": "Question",
+          "answer": "Answer"
+        }
+      },
+      "productGallery": {
+        "label": "Product Media Gallery (Swiper & Zoom)"
+      },
+      "productBuy": {
+        "label": "Product Buy Widget (Modern)"
+      }
+    }
+  },
+  "bp-cms": {
+    "blocks": {
+      "marqueeText": { "label": "Marquee Scroll Text" }
+    },
+    "elements": {
+      "marqueeText": {
+        "label": "Marquee Scroll Text",
+        "config": {
+          "textLabel": "Scroll Text",
+          "textPlaceholder": "Enter text…",
+          "bannerColorLabel": "Banner Color",
+          "textColorLabel": "Text Color",
+          "speedLabel": "Speed",
+          "speedSlow": "Slow",
+          "speedNormal": "Normal",
+          "speedFast": "Fast"
+        }
+      }
+    }
+  }
+}

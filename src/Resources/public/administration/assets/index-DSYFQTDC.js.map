@@ -1,0 +1,1 @@
+{"version":3,"file":"index-DSYFQTDC.js","sources":["../../../app/administration/src/module/sw-cms/elements/ez-product-buy/config/index.js"],"sourcesContent":["import template from './config.html.twig';\nimport './config.scss';\n\n/**\n * @private\n * @package buyers-experience\n */\nexport default {\n    template,\n};\n"],"names":["index"],"mappings":"AAOA,MAAAA,EAAe,CACX,WACJ"}

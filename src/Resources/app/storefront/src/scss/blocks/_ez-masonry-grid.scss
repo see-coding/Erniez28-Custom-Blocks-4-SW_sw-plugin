@@ -1,0 +1,48 @@
+// ==============================================================================
+// Erniez28 Custom Blocks - Masonry Grid
+// ==============================================================================
+
+.ez-masonry-grid,
+.bp-masonry-grid {
+    column-count: 3;
+    column-gap: 1.25rem;
+
+    &__item {
+        break-inside: avoid;
+        margin-bottom: 1.25rem;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+
+            img {
+                transform: scale(1.04);
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .ez-masonry-grid,
+    .bp-masonry-grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 575px) {
+    .ez-masonry-grid,
+    .bp-masonry-grid {
+        column-count: 1;
+    }
+}

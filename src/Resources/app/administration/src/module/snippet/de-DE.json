@@ -1,0 +1,110 @@
+{
+  "sw-cms": {
+    "detail": {
+      "label": {
+        "blockCategory": {
+          "erniez28-custom-blocks": "Erniez28 Custom-Blocks",
+          "erniez28-theme-blocks": "Erniez28 Custom-Blocks",
+          "bp-theme-blocks": "Erniez28 Custom-Blocks"
+        }
+      }
+    }
+  },
+  "apps": {
+    "sw-cms": {
+      "detail": {
+        "label": {
+          "blockCategory": {
+            "erniez28-custom-blocks": "Erniez28 Custom-Blocks",
+            "erniez28-theme-blocks": "Erniez28 Custom-Blocks",
+            "bp-theme-blocks": "Erniez28 Custom-Blocks"
+          }
+        }
+      }
+    }
+  },
+  "ez-cms": {
+    "blocks": {
+      "twoColRow": { "label": "2-Spalten Layout (Responsiv)" },
+      "threeColRow": { "label": "3-Spalten Bilderzeile (Gestaucht/Full)" },
+      "sixColRow": { "label": "6-Spalten Mini-Karten / Marken-Zeile" },
+      "dualImageRow": { "label": "Duo-Bildzeile (75/25)" },
+      "dualImageRow2575": { "label": "Duo-Bildzeile (25/75)" },
+      "tripleHero": { "label": "Triple-Hero Teaser Showcase" },
+      "masonryGrid": { "label": "Dynamisches Masonry-Bilder-Grid" },
+      "splitImageHover": { "label": "Diagonaler Split-Image Hover-Teaser" },
+      "marqueeText": { "label": "Marquee Scroll-Text Banner" },
+      "productDetail": { "label": "Modernes Produkt-Showcase (Galerie & Kaufen)" },
+      "minimalFooter": { "label": "Minimaler Landingpage Legal-Footer" },
+      "legalModals": { "label": "EU GPSR & Rechtliches Modal-Buttons" },
+      "beforeAfterSlider": { "label": "Interaktiver Vorher/Nachher Bildvergleich" },
+      "uspGrid": { "label": "High-Conversion USP Vertrauens-Karten" },
+      "faqAccordion": { "label": "FAQ Akkordeon mit Schema.org SEO" }
+    },
+    "elements": {
+      "marqueeText": {
+        "label": "Marquee Scroll-Text",
+        "config": {
+          "textLabel": "Banner Text",
+          "textPlaceholder": "Scrollenden Text eingeben…",
+          "bannerColorLabel": "Hintergrundfarbe",
+          "textColorLabel": "Textfarbe",
+          "speedLabel": "Geschwindigkeit",
+          "speedSlow": "Langsam",
+          "speedNormal": "Normal",
+          "speedFast": "Schnell"
+        }
+      },
+      "beforeAfterSlider": {
+        "label": "Vorher/Nachher Bildvergleich",
+        "config": {
+          "labelBefore": "Beschriftung Vorher",
+          "labelAfter": "Beschriftung Nachher",
+          "initialPosition": "Startposition Schieberegler (%)"
+        }
+      },
+      "uspGrid": {
+        "label": "USP Vertrauens-Karten",
+        "config": {
+          "title": "Überschrift",
+          "text": "Beschreibungstext",
+          "badge": "Badge Label"
+        }
+      },
+      "faqAccordion": {
+        "label": "FAQ Akkordeon",
+        "config": {
+          "headline": "Hauptüberschrift FAQ",
+          "question": "Frage",
+          "answer": "Antwort"
+        }
+      },
+      "productGallery": {
+        "label": "Produkt-Bildergalerie (Swiper & Zoom)"
+      },
+      "productBuy": {
+        "label": "Produkt-Kaufbox (Modern)"
+      }
+    }
+  },
+  "bp-cms": {
+    "blocks": {
+      "marqueeText": { "label": "Marquee Scroll-Text" }
+    },
+    "elements": {
+      "marqueeText": {
+        "label": "Marquee Scroll-Text",
+        "config": {
+          "textLabel": "Scroll-Text",
+          "textPlaceholder": "Text eingeben…",
+          "bannerColorLabel": "Banner-Farbe",
+          "textColorLabel": "Text-Farbe",
+          "speedLabel": "Geschwindigkeit",
+          "speedSlow": "Langsam",
+          "speedNormal": "Normal",
+          "speedFast": "Schnell"
+        }
+      }
+    }
+  }
+}

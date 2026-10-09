@@ -1,0 +1,38 @@
+{
+  "erniez28": {
+    "blocks": {
+      "productDetail": {
+        "brand": "Brand",
+        "productNumber": "Product No."
+      },
+      "beforeAfter": {
+        "before": "Before",
+        "after": "After",
+        "sliderLabel": "Image comparison slider"
+      },
+      "legalModals": {
+        "productSafety": "Product Details & Safety (GPSR)",
+        "shopInfo": "Shop Info & Legal",
+        "close": "Close"
+      },
+      "minimalFooter": {
+        "impressum": "Legal Notice",
+        "datenschutz": "Privacy Policy",
+        "widerruf": "Right of Withdrawal",
+        "versand": "Shipping & Payment",
+        "agb": "Terms & Conditions",
+        "cookies": "Cookie Settings"
+      },
+      "usp": {
+        "shippingTitle": "Free Shipping",
+        "shippingText": "Fast & climate-neutral delivery on orders over €50",
+        "qualityTitle": "Certified Quality",
+        "qualityText": "Premium textiles and long-lasting print finish",
+        "securityTitle": "Secure Checkout",
+        "securityText": "SSL encryption with PayPal, Klarna & Credit Card",
+        "supportTitle": "Dedicated Support",
+        "supportText": "Expert customer guidance and hassle-free returns"
+      }
+    }
+  }
+}

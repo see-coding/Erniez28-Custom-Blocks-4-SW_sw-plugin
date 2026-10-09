@@ -1,0 +1,41 @@
+// ==============================================================================
+// Erniez28 Custom Blocks - Multi-Column Rows (2-col, 3-col, 6-col)
+// ==============================================================================
+
+.ez-block-row,
+.bp-block-row {
+    margin-left: -8px;
+    margin-right: -8px;
+
+    > [class*='col-'] {
+        padding-left: 8px;
+        padding-right: 8px;
+        margin-bottom: 16px;
+    }
+
+    .ez-slot-link,
+    .bp-slot-link {
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+        &:hover,
+        &:focus-visible {
+            transform: translateY(-2px);
+        }
+    }
+}
+
+.ez-3col-row,
+.cms-block-bp-3col-row {
+    > [class*='col-'] {
+        margin-bottom: 0;
+    }
+}
+
+.ez-6col-row,
+.cms-block-bp-6col-row {
+    > [class*='col-'] {
+        margin-bottom: 12px;
+    }
+}

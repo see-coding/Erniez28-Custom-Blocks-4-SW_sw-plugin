@@ -1,0 +1,97 @@
+<div class="sw-cms-el-config-bp-split-image-hover">
+
+    
+    <div class="sw-cms-el-config-bp-split-image-hover__section">
+        <h3>Bild 1 (Oberes Dreieck)</h3>
+
+        <sw-media-upload-v2
+            variant="regular"
+            :uploadTag="uploadTag1"
+            :source="previewSource1"
+            :allowMultiSelect="false"
+            :defaultFolder="cmsPageState.pageEntityName"
+            :caption="'Bild 1 hochladen'"
+            @media-upload-sidebar-open="onOpenMedia1Modal"
+            @media-upload-remove-image="onImage1Remove"
+        ></sw-media-upload-v2>
+
+        <sw-upload-listener
+            :uploadTag="uploadTag1"
+            autoUpload
+            @media-upload-finish="onImage1Upload"
+        ></sw-upload-listener>
+
+        <sw-media-modal-v2
+            v-if="mediaModal1IsOpen"
+            variant="full"
+            caption="Bild 1 aus Mediathek wählen"
+            :entityContext="cmsPageState.entityName"
+            :allowMultiSelect="false"
+            :initialFolderId="cmsPageState.defaultMediaFolderId"
+            @media-upload-remove-image="onImage1Remove"
+            @media-modal-selection-change="onSelection1Change"
+            @modal-close="onCloseMedia1Modal"
+        ></sw-media-modal-v2>
+
+        <label style="display:block; margin-bottom: 4px; font-weight: 600; font-size: 14px;">Link für Bild 1 (optional)</label>
+        <sw-dynamic-url-field
+            v-model:value="element.config.url1.value"
+            @update:value="emitUpdate"
+            style="margin-bottom: 24px;"
+        />
+
+        <mt-switch
+            label="Link in neuem Tab öffnen"
+            v-model="element.config.newTab1.value"
+            @update:modelValue="emitUpdate"
+        />
+    </div>
+
+    
+    <div class="sw-cms-el-config-bp-split-image-hover__section">
+        <h3>Bild 2 (Unteres Dreieck)</h3>
+
+        <sw-media-upload-v2
+            variant="regular"
+            :uploadTag="uploadTag2"
+            :source="previewSource2"
+            :allowMultiSelect="false"
+            :defaultFolder="cmsPageState.pageEntityName"
+            :caption="'Bild 2 hochladen'"
+            @media-upload-sidebar-open="onOpenMedia2Modal"
+            @media-upload-remove-image="onImage2Remove"
+        ></sw-media-upload-v2>
+
+        <sw-upload-listener
+            :uploadTag="uploadTag2"
+            autoUpload
+            @media-upload-finish="onImage2Upload"
+        ></sw-upload-listener>
+
+        <sw-media-modal-v2
+            v-if="mediaModal2IsOpen"
+            variant="full"
+            caption="Bild 2 aus Mediathek wählen"
+            :entityContext="cmsPageState.entityName"
+            :allowMultiSelect="false"
+            :initialFolderId="cmsPageState.defaultMediaFolderId"
+            @media-upload-remove-image="onImage2Remove"
+            @media-modal-selection-change="onSelection2Change"
+            @modal-close="onCloseMedia2Modal"
+        ></sw-media-modal-v2>
+
+        <label style="display:block; margin-bottom: 4px; font-weight: 600; font-size: 14px;">Link für Bild 2 (optional)</label>
+        <sw-dynamic-url-field
+            v-model:value="element.config.url2.value"
+            @update:value="emitUpdate"
+            style="margin-bottom: 24px;"
+        />
+
+        <mt-switch
+            label="Link in neuem Tab öffnen"
+            v-model="element.config.newTab2.value"
+            @update:modelValue="emitUpdate"
+        />
+    </div>
+
+</div>

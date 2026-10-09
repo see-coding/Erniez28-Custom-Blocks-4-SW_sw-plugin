@@ -1,0 +1,180 @@
+// ==============================================================================
+// Erniez28 Custom Blocks - Triple Hero Showcase
+// ==============================================================================
+
+.ez-triple-hero,
+.tripple-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 75% 25%;
+    gap: 0;
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+
+    &__cell {
+        position: relative;
+        overflow: hidden;
+
+        > .cms-element-image,
+        > .cms-image-link > .cms-element-image,
+        > .cms-element-ez-hero-cell,
+        > .cms-element-bp-hero-cell {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+
+            .cms-image-container {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .cms-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                transition: transform 0.8s ease;
+            }
+        }
+
+        &:hover > .cms-element-image .cms-image,
+        &:hover > .cms-image-link > .cms-element-image .cms-image,
+        &:hover > .cms-element-ez-hero-cell .cms-image,
+        &:hover > .cms-element-bp-hero-cell .cms-image {
+            transform: scale(1.05);
+        }
+
+        &--tl {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+        }
+
+        &--tr {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+            border-left: 8px solid #d4a717;
+        }
+
+        &--bottom {
+            grid-column: 1 / -1;
+            grid-row: 2 / 3;
+            border-top: 8px solid #d4a717;
+
+            .ez-triple-hero__overlay-bg,
+            .tripple-hero__overlay-bg {
+                background-color: #2c2221;
+            }
+        }
+    }
+
+    &__logo-wrap {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    &__logo {
+        max-width: 60%;
+        max-height: 55%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.6));
+        display: block;
+    }
+
+    &__cell:hover &__logo-wrap {
+        opacity: 0;
+        transform: scale(0.88);
+    }
+
+    &__overlay-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background-color: #222;
+        background-image: repeating-linear-gradient(
+            -45deg,
+            rgba(255, 255, 255, 0.02) 0,
+            rgba(255, 255, 255, 0.02) 2px,
+            transparent 2px,
+            transparent 6px
+        );
+        transition: opacity 0.5s ease;
+    }
+
+    &__cell--tl &__overlay-bg {
+        background-color: #282828;
+    }
+
+    &__cell--tr &__overlay-bg {
+        background-color: #121212;
+    }
+
+    &__cell:hover &__overlay-bg,
+    &__cell:focus-within &__overlay-bg {
+        opacity: 0;
+    }
+
+    &__cell:hover &__logo-wrap,
+    &__cell:focus-within &__logo-wrap {
+        opacity: 0;
+        transform: scale(0.88);
+    }
+
+    &__full-link {
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        display: block;
+        text-decoration: none;
+
+        &:focus-visible {
+            outline: 3px solid #ffc107;
+            outline-offset: -4px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .ez-triple-hero,
+    .tripple-hero {
+        height: 100svh;
+        min-height: 100svh;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-rows: minmax(0, 72svh) minmax(10rem, 28svh);
+
+        &__cell {
+            min-width: 0;
+        }
+
+        &__cell--tl {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+        }
+
+        &__cell--tr {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+            border-left-width: 4px;
+        }
+
+        &__cell--bottom {
+            grid-column: 1 / -1;
+            grid-row: 2 / 3;
+            border-top-width: 4px;
+        }
+    }
+}

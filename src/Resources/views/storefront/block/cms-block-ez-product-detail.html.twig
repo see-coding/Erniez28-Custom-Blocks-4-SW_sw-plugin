@@ -1,0 +1,34 @@
+{% block ez_block_product_detail %}
+    <div class="row ez-product-detail-layout">
+        {# Left Column: Product Media / Image Gallery #}
+        {% block ez_block_product_detail_column_left %}
+            {% set element = block.slots.getSlot('left') %}
+            {% if element %}
+                {% set config = element.fieldConfig ? element.fieldConfig.elements : null %}
+                <div class="col-12 col-lg-6 ez-product-detail-media" data-cms-element-id="{{ element.id }}">
+                    {% block ez_block_product_detail_column_left_inner %}
+                        {% sw_include '@Storefront/storefront/element/cms-element-' ~ element.type ~ '.html.twig' ignore missing with {
+                            isProduct: config and config.sliderItems and config.sliderItems.value == 'product.media' and config.sliderItems.source == 'mapped',
+                            startIndexThumbnails: 1,
+                            startIndexSlider: 1
+                        } %}
+                    {% endblock %}
+                </div>
+            {% endif %}
+        {% endblock %}
+
+        {# Right Column: Product Buy Widget / Price / Cart #}
+        {% block ez_block_product_detail_column_right %}
+            {% set element = block.slots.getSlot('right') %}
+            {% if element %}
+                <div class="col-12 col-lg-6 ez-product-detail-buy" data-cms-element-id="{{ element.id }}">
+                    {% block ez_block_product_detail_column_right_inner %}
+                        {% sw_include '@Storefront/storefront/element/cms-element-' ~ element.type ~ '.html.twig' ignore missing with {
+                            element: element
+                        } %}
+                    {% endblock %}
+                </div>
+            {% endif %}
+        {% endblock %}
+    </div>
+{% endblock %}

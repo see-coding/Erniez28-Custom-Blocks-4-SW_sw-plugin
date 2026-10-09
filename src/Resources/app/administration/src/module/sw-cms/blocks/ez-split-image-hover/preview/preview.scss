@@ -1,0 +1,30 @@
+.sw-cms-preview-ez-split-image-hover {
+    padding: 6px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .ez-split-preview-box {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        overflow: hidden;
+        border-radius: 4px;
+        border: 1px dashed #94a3b8;
+
+        .ez-split-preview-top {
+            position: absolute;
+            inset: 0;
+            background: #cbd5e1;
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+        }
+
+        .ez-split-preview-bottom {
+            position: absolute;
+            inset: 0;
+            background: #94a3b8;
+            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+        }
+    }
+}

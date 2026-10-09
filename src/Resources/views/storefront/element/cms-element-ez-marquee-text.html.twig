@@ -1,0 +1,29 @@
+{% block element_ez_marquee_text %}
+    {% set config = element.fieldConfig ? element.fieldConfig.elements : null %}
+
+    {% set marqueeText = (config and config.text and config.text.value) ? config.text.value : 'EXCLUSIVE SPECIAL DROP ★ ERNIEZ28 CUSTOM BLOCKS' %}
+    {% set bannerColor = (config and config.bannerColor and config.bannerColor.value) ? config.bannerColor.value : '#000000' %}
+    {% set textColor = (config and config.textColor and config.textColor.value) ? config.textColor.value : '#FFFFFF' %}
+    {% set speed = (config and config.speed and config.speed.value) ? config.speed.value : 'normal' %}
+
+    {# Map speed option to animation duration #}
+    {% if speed == 'slow' %}
+        {% set duration = '70s' %}
+    {% elseif speed == 'fast' %}
+        {% set duration = '20s' %}
+    {% else %}
+        {% set duration = '38s' %}
+    {% endif %}
+
+    <div class="cms-element-ez-marquee-text ez-marquee-banner"
+         style="background-color: {{ bannerColor }}; color: {{ textColor }};"
+         role="region"
+         aria-label="Announcement ticker">
+        <div class="ez-marquee-track" style="animation-duration: {{ duration }};">
+            <span class="ez-marquee-item">{{ marqueeText }}&nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp;</span>
+            <span class="ez-marquee-item">{{ marqueeText }}&nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp;</span>
+            <span class="ez-marquee-item">{{ marqueeText }}&nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp;</span>
+            <span class="ez-marquee-item">{{ marqueeText }}&nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp;</span>
+        </div>
+    </div>
+{% endblock %}

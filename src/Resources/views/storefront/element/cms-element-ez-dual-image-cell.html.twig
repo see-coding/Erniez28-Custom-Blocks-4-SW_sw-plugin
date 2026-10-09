@@ -1,0 +1,40 @@
+{% block element_ez_dual_image_cell %}
+    {% set media = element.data.media ?? null %}
+    {% set url = element.translated.config.url.value ?? null %}
+    {% set newTab = element.translated.config.newTab.value ?? false %}
+    {% set alt = element.translated.config.altText.value ?? media.translated.alt ?? media.translated.title ?? media.alt ?? media.title ?? '' %}
+
+    <div class="cms-element-ez-dual-image-cell ez-dual-image-cell">
+        {% if url %}
+            <a href="{{ url }}"
+               class="ez-dual-image-cell__link"
+               {% if newTab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+        {% endif %}
+
+        {% if media and media.url %}
+            <div class="w-100 cms-image-container is-cover">
+                {% sw_thumbnails 'ez-dual-image-cell' with {
+                    media: media,
+                    attributes: {
+                        class: 'ez-dual-image-cell__img cms-image',
+                        alt: alt,
+                        loading: 'lazy'
+                    }
+                } %}
+
+                {% if alt is not empty %}
+                    {% set cleanTitle = alt|replace({' - ': ' – ', '-': ' – '})|replace({'  ': ' '})|trim %}
+                    <div class="ez-category-overlay">
+                        <span class="ez-category-overlay__title">{{ cleanTitle }}</span>
+                    </div>
+                {% endif %}
+            </div>
+        {% else %}
+            <div class="ez-dual-image-cell__placeholder"></div>
+        {% endif %}
+
+        {% if url %}
+            </a>
+        {% endif %}
+    </div>
+{% endblock %}

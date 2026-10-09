@@ -1,0 +1,65 @@
+{% block element_ez_before_after_slider %}
+    {% set config = element.fieldConfig ? element.fieldConfig.elements : null %}
+    {% set mediaBefore = element.data.mediaBefore ?? null %}
+    {% set mediaAfter = element.data.mediaAfter ?? null %}
+    {% set labelBefore = (config and config.labelBefore and config.labelBefore.value) ? config.labelBefore.value : ('erniez28.blocks.beforeAfter.before'|trans|default('Vorher')) %}
+    {% set labelAfter = (config and config.labelAfter and config.labelAfter.value) ? config.labelAfter.value : ('erniez28.blocks.beforeAfter.after'|trans|default('Nachher')) %}
+    {% set initialPos = (config and config.initialPosition and config.initialPosition.value) ? config.initialPosition.value : 50 %}
+
+    <div class="cms-element-ez-before-after-slider ez-before-after-container"
+         data-ez-before-after-slider="true"
+         data-ez-before-after-slider-options='{ "initialPosition": {{ initialPos }} }'
+         style="--ez-slider-pos: {{ initialPos }}%;">
+
+        {# Image 1 (After / Foreground Clipped) #}
+        {% if mediaAfter %}
+            <div class="ez-ba-image ez-ba-image--after">
+                {% sw_thumbnails 'ez-ba-after' with {
+                    media: mediaAfter,
+                    attributes: {
+                        class: 'ez-ba-img',
+                        alt: mediaAfter.translated.alt|default(labelAfter),
+                        loading: 'lazy'
+                    }
+                } %}
+                <span class="ez-ba-badge ez-ba-badge--after">{{ labelAfter }}</span>
+            </div>
+        {% endif %}
+
+        {# Image 2 (Before / Background Full) #}
+        {% if mediaBefore %}
+            <div class="ez-ba-image ez-ba-image--before">
+                {% sw_thumbnails 'ez-ba-before' with {
+                    media: mediaBefore,
+                    attributes: {
+                        class: 'ez-ba-img',
+                        alt: mediaBefore.translated.alt|default(labelBefore),
+                        loading: 'lazy'
+                    }
+                } %}
+                <span class="ez-ba-badge ez-ba-badge--before">{{ labelBefore }}</span>
+            </div>
+        {% endif %}
+
+        {# Native Accessible Range Input for Keyboard & Screen Readers (WCAG 2.1 AA) #}
+        <input type="range"
+               role="slider"
+               class="ez-ba-range-input"
+               min="0"
+               max="100"
+               value="{{ initialPos }}"
+               aria-label="{{ 'erniez28.blocks.beforeAfter.sliderLabel'|trans|default('Bildvergleich Schieberegler') }}"
+               aria-valuemin="0"
+               aria-valuemax="100"
+               aria-valuenow="{{ initialPos }}">
+
+        {# Interactive Divider Handle (Mirrored Visual Representation) #}
+        <div class="ez-ba-handle" aria-hidden="true">
+            <div class="ez-ba-handle-line"></div>
+            <div class="ez-ba-handle-button">
+                <span class="ez-ba-handle-arrows">❮ ❯</span>
+            </div>
+            <div class="ez-ba-handle-line"></div>
+        </div>
+    </div>
+{% endblock %}

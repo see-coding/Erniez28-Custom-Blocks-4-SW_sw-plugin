@@ -1,0 +1,69 @@
+{% block element_ez_minimal_footer %}
+    {% set config = element.fieldConfig.elements %}
+    {% set bgColor = config.bgColor.value|default('#111827') %}
+    {% set textColor = config.textColor.value|default('#F9FAFB') %}
+    {% set targetAttr = (config.openInNewTab.value ?? true) ? 'target="_blank" rel="noopener noreferrer"' : '' %}
+
+    <footer class="ez-minimal-footer-wrapper" style="background-color: {{ bgColor }}; color: {{ textColor }};" role="contentinfo">
+        <div class="container-fluid ez-minimal-footer-inner">
+            <div class="row ez-legal-links-row justify-content-center align-items-center g-3">
+                {% if (config.showImpressum.value ?? true) and (config.impressumUrl.value|default('/impressum')) %}
+                    <div class="col-auto ez-footer-col">
+                        <a href="{{ config.impressumUrl.value|default('/impressum') }}" class="ez-legal-link" style="color: {{ textColor }};" {{ targetAttr|raw }}>
+                            {{ 'erniez28.blocks.minimalFooter.impressum'|trans|default('Impressum') }}
+                        </a>
+                    </div>
+                {% endif %}
+
+                {% if (config.showDatenschutz.value ?? true) and (config.datenschutzUrl.value|default('/datenschutz')) %}
+                    <div class="col-auto ez-footer-col">
+                        <a href="{{ config.datenschutzUrl.value|default('/datenschutz') }}" class="ez-legal-link" style="color: {{ textColor }};" {{ targetAttr|raw }}>
+                            {{ 'erniez28.blocks.minimalFooter.datenschutz'|trans|default('Datenschutz') }}
+                        </a>
+                    </div>
+                {% endif %}
+
+                {% if (config.showWiderruf.value ?? true) and (config.widerrufUrl.value|default('/widerruf')) %}
+                    <div class="col-auto ez-footer-col">
+                        <a href="{{ config.widerrufUrl.value|default('/widerruf') }}" class="ez-legal-link" style="color: {{ textColor }};" {{ targetAttr|raw }}>
+                            {{ 'erniez28.blocks.minimalFooter.widerruf'|trans|default('Widerrufsbelehrung') }}
+                        </a>
+                    </div>
+                {% endif %}
+
+                {% if (config.showVersand.value ?? true) and (config.versandUrl.value|default('/versand-und-zahlung')) %}
+                    <div class="col-auto ez-footer-col">
+                        <a href="{{ config.versandUrl.value|default('/versand-und-zahlung') }}" class="ez-legal-link" style="color: {{ textColor }};" {{ targetAttr|raw }}>
+                            {{ 'erniez28.blocks.minimalFooter.versand'|trans|default('Versand & Zahlung') }}
+                        </a>
+                    </div>
+                {% endif %}
+
+                {% if (config.showAgb.value ?? true) and (config.agbUrl.value|default('/agb')) %}
+                    <div class="col-auto ez-footer-col">
+                        <a href="{{ config.agbUrl.value|default('/agb') }}" class="ez-legal-link" style="color: {{ textColor }};" {{ targetAttr|raw }}>
+                            {{ 'erniez28.blocks.minimalFooter.agb'|trans|default('AGB') }}
+                        </a>
+                    </div>
+                {% endif %}
+
+                {% if (config.showCookies.value ?? true) %}
+                    <div class="col-auto ez-footer-col">
+                        <a href="#" role="button" data-bs-toggle="modal" data-bs-target="#cookie-modal" class="ez-legal-link ez-cookie-trigger" style="color: {{ textColor }};">
+                            {{ 'erniez28.blocks.minimalFooter.cookies'|trans|default('Cookies') }}
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if (config.showMarquee.value ?? true) and config.marqueeText.value %}
+            {% set marqueeBg = config.marqueeBgColor.value|default('#e63946') %}
+            {% set marqueeTextCol = config.marqueeTextColor.value|default('#ffffff') %}
+            {% set speedClass = 'ez-speed-' ~ (config.marqueeSpeed.value|default('normal')) %}
+            <div class="ez-minimal-footer-marquee" style="background-color: {{ marqueeBg }}; color: {{ marqueeTextCol }};">
+                <span class="ez-marquee-text {{ speedClass }}">{{ config.marqueeText.value }}</span>
+            </div>
+        {% endif %}
+    </footer>
+{% endblock %}

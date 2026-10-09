@@ -1,0 +1,31 @@
+{% block block_ez_6col_row %}
+    {% set behavior = block.customFields.responsiveBehavior ?? 'default' %}
+    {% if behavior == 'no-stack' %}
+        {% set colClass = 'col-2' %}
+    {% elseif behavior == 'stack-tablet' %}
+        {% set colClass = 'col-lg-2 col-4' %}
+    {% else %}
+        {% set colClass = 'col-md-2 col-4 col-6' %}
+    {% endif %}
+
+    <div class="row ez-block-row ez-6col-row cms-block-{{ block.type }}">
+        {% for columnContent in block.slots %}
+            {% set slotLink = block.customFields ? block.customFields['slot_' ~ columnContent.slot ~ '_link'] ?? null : null %}
+            {% set slotCss = block.customFields ? block.customFields['slot_' ~ columnContent.slot ~ '_css'] ?? '' : '' %}
+
+            <div class="{{ colClass }} {{ slotCss }}">
+                {% if slotLink %}
+                    <a href="{{ slotLink }}" class="ez-slot-link d-block w-100 h-100">
+                {% endif %}
+
+                {% sw_include "@Storefront/storefront/element/cms-element-" ~ columnContent.type ~ ".html.twig" ignore missing with {
+                    element: columnContent
+                } %}
+
+                {% if slotLink %}
+                    </a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

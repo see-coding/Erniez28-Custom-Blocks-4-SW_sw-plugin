@@ -1,0 +1,39 @@
+{% block block_ez_triple_hero %}
+    <div class="cms-block-ez-triple-hero ez-triple-hero">
+        {# Top-Left Cell #}
+        <div class="ez-triple-hero__cell ez-triple-hero__cell--tl">
+            {% block block_ez_triple_hero_left %}
+                {% set slotLeft = block.slots.getSlot('left') %}
+                {% if slotLeft %}
+                    {% sw_include "@Storefront/storefront/element/cms-element-" ~ slotLeft.type ~ ".html.twig" ignore missing with {
+                        element: slotLeft
+                    } %}
+                {% endif %}
+            {% endblock %}
+        </div>
+
+        {# Top-Right Cell #}
+        <div class="ez-triple-hero__cell ez-triple-hero__cell--tr">
+            {% block block_ez_triple_hero_right %}
+                {% set slotRight = block.slots.getSlot('right') %}
+                {% if slotRight %}
+                    {% sw_include "@Storefront/storefront/element/cms-element-" ~ slotRight.type ~ ".html.twig" ignore missing with {
+                        element: slotRight
+                    } %}
+                {% endif %}
+            {% endblock %}
+        </div>
+
+        {# Bottom Full-Width Cell #}
+        <div class="ez-triple-hero__cell ez-triple-hero__cell--bottom">
+            {% block block_ez_triple_hero_bottom %}
+                {% set slotBottom = block.slots.getSlot('bottom') %}
+                {% if slotBottom %}
+                    {% sw_include "@Storefront/storefront/element/cms-element-" ~ slotBottom.type ~ ".html.twig" ignore missing with {
+                        element: slotBottom
+                    } %}
+                {% endif %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

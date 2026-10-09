@@ -1,0 +1,17 @@
+.sw-cms-block-ez-triple-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 4px;
+    padding: 0;
+
+    .triple-hero-left,
+    .triple-hero-right {
+        position: relative;
+        min-height: 120px;
+    }
+
+    .triple-hero-bottom {
+        grid-column: 1 / -1;
+        min-height: 80px;
+    }
+}
